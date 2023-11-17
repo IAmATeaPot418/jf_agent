@@ -29,6 +29,8 @@ jobs:
         pr: true
         pr_baseline: "master"
         github_token: ${{ secrets.GITHUB_TOKEN }} # Required for PR comments on new policy violations
+        log_level: debug
+        log_verbose: true
     - name: Endor Labs Scan Push to main
       if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' }}
       uses: endorlabs/github-action@v1.1.1
@@ -37,3 +39,5 @@ jobs:
         scan_dependencies: true
         scan_secrets: false
         pr: false
+        log_level: debug
+        log_verbose: true
