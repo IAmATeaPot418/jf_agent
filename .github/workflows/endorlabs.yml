@@ -18,7 +18,7 @@ jobs:
     - name: Install pdm
       run: pip install --user pdm
     - name: Convert pdm.lock to requirements.txt
-      run: pdm export -o requirements.txt 
+      run: pdm export -o requirements.txt && cat requirements.txt
     - name: Endor Labs Scan Pull Request
       if: github.event_name == 'pull_request'
       uses: endorlabs/github-action@v1.1.1
